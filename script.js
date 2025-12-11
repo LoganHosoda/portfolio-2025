@@ -84,6 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('h2').forEach(el => observer.observe(el));
   document.querySelectorAll('.project').forEach(el => observer.observe(el));
   document.querySelectorAll('.experience-item').forEach(el => observer.observe(el));
+  document.querySelectorAll('.certification-item').forEach(el => observer.observe(el));
   document.querySelectorAll('.contact-card').forEach(el => observer.observe(el));
   document.querySelectorAll('.contact-intro').forEach(el => observer.observe(el));
 
@@ -186,6 +187,24 @@ document.addEventListener('DOMContentLoaded', () => {
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
+    });
+  });
+
+  // Experience toggle functionality
+  document.querySelectorAll('.experience-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const details = btn.nextElementSibling;
+      const isExpanded = details.classList.contains('expanded');
+
+      if (isExpanded) {
+        details.classList.remove('expanded');
+        btn.classList.remove('expanded');
+        btn.innerHTML = '<span>Read more</span><i class="fas fa-chevron-down"></i>';
+      } else {
+        details.classList.add('expanded');
+        btn.classList.add('expanded');
+        btn.innerHTML = '<span>Show less</span><i class="fas fa-chevron-up"></i>';
+      }
     });
   });
 });
