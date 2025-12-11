@@ -425,81 +425,95 @@ h2::after {
   border-radius: 2px;
 }
 
-@keyframes scrollSkills {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+
+.skills-intro {
+  font-size: 1.1rem;
+  color: var(--text-dim);
+  margin-bottom: 2.5rem;
+  margin-top: -1rem;
+  text-align: center;
 }
 
-.skills-scroll-container {
-  overflow: hidden;
-  position: relative;
-  padding: 2rem 0;
-  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+.skills-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
 }
 
-.skills-scroll {
-  display: flex;
-  width: fit-content;
-  animation: scrollSkills 40s linear infinite;
-}
-
-.skills-scroll:hover {
-  animation-play-state: paused;
-}
-
-.skills-track {
-  display: flex;
-  gap: 3rem;
-  padding: 0 1.5rem;
-}
-
-.skill-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
-  min-width: 120px;
-  padding: 1.5rem;
+.skill-category {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 12px;
+  padding: 1.5rem;
   transition: all 0.3s ease;
-  cursor: default;
 }
 
-.skill-item:hover {
-  transform: translateY(-8px);
+.skill-category:hover {
   border-color: var(--accent);
-  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.1);
 }
 
-.skill-item i {
-  font-size: 3rem;
+.category-title {
+  font-size: 1.1rem;
+  font-weight: 600;
   color: var(--text);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.category-title i {
+  color: var(--accent);
+  font-size: 1.25rem;
+}
+
+.category-skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+  gap: 0.5rem;
+}
+
+.skill-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.75rem 0.5rem;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  aspect-ratio: 1;
+}
+
+.skill-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  background: var(--surface);
+  box-shadow: 0 3px 8px rgba(59, 130, 246, 0.15);
+}
+
+.skill-card i {
+  font-size: 1.75rem;
   transition: all 0.3s ease;
 }
 
-.skill-item:hover i {
-  color: var(--accent);
+.skill-card:hover i {
   transform: scale(1.1);
 }
 
-.skill-item span {
-  font-size: 0.9rem;
+.skill-name {
+  font-size: 0.7rem;
   font-weight: 500;
-  color: var(--text-dim);
+  color: var(--text);
   text-align: center;
-  white-space: nowrap;
-  transition: color 0.3s ease;
+  line-height: 1.1;
 }
 
-.skill-item:hover span {
-  color: var(--text);
+.skill-level {
+  display: none;
 }
 
 .featured-projects {
@@ -775,7 +789,7 @@ h2::after {
   padding: 0.25rem 0;
   position: relative;
   padding-left: 1.25rem;
-  color: var(--text-dim);
+  color: #b0b8c5;
 }
 
 .experience-item li:before,
@@ -813,7 +827,7 @@ h2::after {
 
 .experience-item li strong,
 .certification-item li strong {
-  color: var(--text-dim);
+  color: #d1d7e0;
 }
 
 .experience-toggle {
@@ -1302,26 +1316,24 @@ footer {
     align-self: flex-start;
   }
 
-  .skills-scroll-container {
-    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  .skills-categories {
+    grid-template-columns: 1fr;
   }
 
-  .skills-track {
-    gap: 2rem;
+  .category-skills {
+    grid-template-columns: repeat(auto-fill, minmax(65px, 1fr));
   }
 
-  .skill-item {
-    min-width: 100px;
-    padding: 1.25rem;
+  .skill-card {
+    padding: 0.6rem 0.4rem;
   }
 
-  .skill-item i {
-    font-size: 2.5rem;
+  .skill-card i {
+    font-size: 1.5rem;
   }
 
-  .skill-item span {
-    font-size: 0.8rem;
+  .skill-name {
+    font-size: 0.65rem;
   }
 
   header::before {
